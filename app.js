@@ -8,6 +8,15 @@ const navigationToggler = document.querySelector(".header__navToggle");
 const navigationContent = document.querySelector(".header__nav");
 const documentBody = document.body;
 const headerNavLinks = document.querySelectorAll(".header__navItem");
+const navLinks = Array.from(
+  document.querySelectorAll(".header__navItem")
+).filter((a) => a.hash && a.hash.length > 1);
+
+const sections = navLinks
+  .map((a) => document.getElementById(a.hash.slice(1)))
+  .filter(Boolean);
+
+const linkById = new Map(navLinks.map((a) => [a.hash.slice(1), a]));
 
 // ------------------
 // Navigation toggle
@@ -36,6 +45,15 @@ function handleMobileNavToggle() {
 }
 
 navigationToggler.addEventListener("click", handleMobileNavToggle);
+
+window.addEventListener("resize", () => {
+  const isDesktopSize = window.innerWidth === 1280;
+  if (isDesktopSize) {
+    navigationContent.classList.remove("open");
+    navigationToggler.classList.remove("open");
+    documentBody.style.overflow = "auto"; // unlock scroll
+  }
+});
 
 // ------------------
 // Mouse follower
@@ -103,3 +121,33 @@ onScrollDirection((direction) => {
     { duration: 500, fill: "forwards" }
   );
 });
+
+// ------------------
+// Observer
+// ------------------
+
+// optional: account for sticky header height
+const STICKY_HEADER = 16; // px, adjust to your header
+const observer = new IntersectionObserver(
+  (entries) => {
+    // pick the most visible section
+    let best = null;
+    for (const entry of entries) {
+      if (!best || entry.intersectionRatio > best.intersectionRatio)
+        best = entry;
+    }
+    if (!best) return;
+
+    const id = best.target.id;
+
+    navLinks.forEach((a) => a.classList.remove("active"));
+    const active = linkById.get(id);
+    if (active) active.classList.add("active");
+  },
+  {
+    threshold: [0, 0.5, 0.7, 1],
+  }
+);
+
+// start observing
+sections.forEach((sec) => observer.observe(sec));
