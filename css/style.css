@@ -338,13 +338,19 @@ body:hover > #mouse-follower {
 
 @media screen and (min-width: 768px) {
   .decoration__square {
-    width: 1em;
+    width: 3em;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .decoration__square {
+    width: 4em;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .decoration__square {
-    width: 4em;
+    width: 5em;
     height: 70%;
   }
 }
@@ -901,13 +907,6 @@ body:hover > #mouse-follower {
 
   .serviceSection__list {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .serviceSection {
-    padding-left: 7em;
-    padding-right: 7em;
   }
 }
 
