@@ -342,7 +342,7 @@ body:hover > #mouse-follower {
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   .decoration__square {
     width: 4em;
     height: 70%;
@@ -518,20 +518,14 @@ body:hover > #mouse-follower {
   align-items: center;
   gap: 0.8em;
   box-shadow: 0px 3px 6px 4px rgba(17, 17, 17, 0.15);
-  transition: box-shadow 0.5s cubic-bezier(var(--cubic-bezier));
+  transition: transform 0.3s cubic-bezier(var(--cubic-bezier));
 }
 
 .cta:hover > .cta__content {
-  box-shadow: 0px 0px 50px 10px rgba(248, 133, 1, 0.8);
+  transform: scale(1.1);
 }
 
 /* ----- Sections */
-.section {
-  max-width: var(--max-screen-width);
-  padding: 1.125em;
-  margin: 0 auto;
-}
-
 .section__caption {
   display: block;
   padding: 0.2em 0.8em;
@@ -543,14 +537,12 @@ body:hover > #mouse-follower {
   border: solid 1px var(--color-outline);
 }
 
-@media screen and (min-width: 1024px) {
-  .section {
-    padding: 3em;
-  }
-}
-
 /* 001 - HERO SECTION */
-.heroSection {
+.heroSection > .section__wrapper {
+  padding: 1.125em;
+  position: relative;
+  max-width: var(--br-screen-xl);
+  margin: 0 auto;
   padding-top: 6em;
   display: flex;
   flex-direction: column;
@@ -560,13 +552,6 @@ body:hover > #mouse-follower {
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 1)
   );
-}
-
-@media screen and (min-width: 1024px) {
-  .heroSection {
-    padding-top: 8em;
-    padding-bottom: 0;
-  }
 }
 
 .heroSection__caption {
@@ -620,12 +605,27 @@ body:hover > #mouse-follower {
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .heroSection > .section__wrapper {
+    padding: 3em;
+    padding-top: 8em;
+    padding-bottom: 1em;
+  }
+}
+
 /* 002 - RECENT ARTICLES */
 .recentArticle {
+  background: var(--color-background);
+  position: relative;
+}
+
+.recentArticle > .section__wrapper {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 1em;
-  background: var(--color-background);
+  padding: 1.125em;
+  margin: 0 auto;
+  max-width: var(--br-screen-xl);
 }
 
 .articleCard {
@@ -717,26 +717,34 @@ body:hover > #mouse-follower {
 }
 
 @media screen and (min-width: 768px) {
-  .recentArticle {
+  .recentArticle > .section__wrapper {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .recentArticle {
+  .recentArticle > .section__wrapper {
     grid-template-columns: repeat(3, 1fr);
+    padding: 3em;
   }
 }
 
 /* 003 - MISSION */
 .missionSection {
+  position: relative;
+  background-color: var(--color-background);
+}
+
+.missionSection > .section__wrapper {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  padding: 1.125em;
   padding-top: 6em;
   padding-bottom: 8em;
-  background-color: var(--color-background);
   position: relative;
+  margin: 0 auto;
+  max-width: var(--br-screen-xl);
 }
 
 .missionSection__title {
@@ -762,8 +770,9 @@ body:hover > #mouse-follower {
 }
 
 @media screen and (min-width: 1024px) {
-  .missionSection {
+  .missionSection > .section__wrapper {
     justify-content: center;
+    padding: 3em;
     padding-bottom: 9em;
   }
 
@@ -779,15 +788,21 @@ body:hover > #mouse-follower {
 
 /* 004 - SERVICES */
 .serviceSection {
+  position: relative;
+  background-color: var(--color-background);
+}
+
+.serviceSection > .section__wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5em;
+  padding: 1.125em;
   padding-top: 8em;
   padding-bottom: 9em;
-  position: relative;
-  background-color: var(--color-background);
+  max-width: var(--br-screen-xl);
+  margin: 0 auto;
 }
 
 .serviceSection__title {
@@ -868,7 +883,7 @@ body:hover > #mouse-follower {
 }
 
 @media screen and (min-width: 1024px) {
-  .serviceSection {
+  .serviceSection > .section__wrapper {
     justify-content: center;
     padding-top: 9em;
     padding-left: 6em;
@@ -893,7 +908,6 @@ body:hover > #mouse-follower {
   .serviceSection {
     padding-left: 7em;
     padding-right: 7em;
-    padding-bottom: 10em;
   }
 }
 
@@ -901,14 +915,19 @@ body:hover > #mouse-follower {
 
 .aboutSection {
   background: var(--color-background);
+  position: relative;
+}
+
+.aboutSection > .section__wrapper {
+  padding: 1.125em;
   padding-top: 5em;
   padding-bottom: 5em;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5em;
+  margin: 0 auto;
 }
 
 .aboutSection__title {
@@ -961,6 +980,8 @@ body:hover > #mouse-follower {
   border-top-right-radius: 2em;
   padding: 2em;
   gap: 4em;
+  max-width: var(--br-screen-xl);
+  margin: 0 auto;
 }
 
 .footer__wrapper > svg {

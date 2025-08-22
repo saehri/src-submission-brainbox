@@ -27,6 +27,8 @@ headerNavLinks.forEach((link) => {
   link.addEventListener("click", () => {
     if (navigationContent.classList.contains("open")) {
       navigationContent.classList.remove("open");
+      documentBody.style.overflow = "auto"; // unlock scroll
+      navigationToggler.classList.remove("open");
     }
   });
 });
