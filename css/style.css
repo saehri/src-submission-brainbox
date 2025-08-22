@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Manrope Variable";
-  src: url("/assets/fonts/Manrope/Manrope-VariableFont_wght.ttf");
+  src: url("../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf");
 }
 
 /* ----- ROOT SELECTOR */
@@ -920,7 +920,7 @@ body:hover > #mouse-follower {
 @media screen and (min-width: 1024px) {
   .aboutSection__title {
     font-size: 3rem;
-    max-width: 20em;
+    max-width: 19em;
   }
 
   .aboutSection__paragraph {
