@@ -837,6 +837,7 @@ body:hover > #mouse-follower {
   border-radius: 1.5em;
   transition: transform 0.5s cubic-bezier(var(--cubic-bezier)),
     box-shadow 0.2s cubic-bezier(var(--cubic-bezier));
+  display: flex;
 }
 
 .serviceSection__card:hover {
@@ -850,6 +851,7 @@ body:hover > #mouse-follower {
   border-radius: 1em;
   color: var(--color-onBackground);
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.5em;
   justify-content: start;
